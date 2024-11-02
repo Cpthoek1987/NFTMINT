@@ -118,7 +118,7 @@ function Header() {
   return (
     <header className="flex flex-col items-center">
       <img
-        src="/media/logo_clean.png"
+        src="/media/logo_clean.png" // Gebruik een relatief pad
         alt="logo"
         className="w-[300px] h-[300px] mb-6" // Pas de grootte aan
         style={{

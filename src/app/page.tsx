@@ -106,7 +106,7 @@ export default function Home() {
           >
             {getPrice(quantity) === "Loading..."
               ? "Loading Price..."
-              : `Claim Chili (${getPrice(quantity)} ETH)`}
+              : `Mint Chiliz (${getPrice(quantity)} ETH)`}
           </TransactionButton>
         </div>
       </div>
@@ -117,16 +117,14 @@ export default function Home() {
 function Header() {
   return (
     <header className="flex flex-col items-center">
-<img
-  src="https://cdn.discordapp.com/attachments/1213835483512180737/1213839052017500191/logo_clean.png?ex=67242d76&is=6722dbf6&hm=db81ccd70fdc1a026765b3d16b43abd8d86bc18059cebc22f8ed8dfd245a619b&"
-  alt=""
-  className="size-[300px] md:size-[300px] mb-6"
-  style={{
-    filter: "drop-shadow(0px 0px 24px #ff0000a8)",
-  }}
-/>
-
-
+      <img
+        src="/media/logo_clean.png"
+        alt="logo"
+        className="w-[300px] h-[300px] mb-6" // Pas de grootte aan
+        style={{
+          filter: "drop-shadow(0px 0px 24px #ff0000a8)",
+        }}
+      />
       <h1 className="text-2xl md:text-6xl font-semibold md:font-bold tracking-tighter mb-6 text-zinc-100">
         ChillingChiliz - The Dream
       </h1>

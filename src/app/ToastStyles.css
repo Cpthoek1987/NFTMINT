@@ -1,0 +1,38 @@
+.fire-toast {
+  color: #ff4500;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500, 0 0 30px #ff0000;
+  animation: fadeInUp 0.5s ease-out, heartbeat 3s infinite;
+}
+
+/* Nieuwe fade-in animatie */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Heartbeat animatie */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.3);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.3);
+  }
+  70% {
+    transform: scale(1);
+  }
+}

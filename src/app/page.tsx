@@ -1,7 +1,13 @@
 "use client";
 
-// import Image from "next/image"; (not used anymore)
-import { ConnectButton, MediaRenderer, TransactionButton, useActiveAccount, useReadContract } from "thirdweb/react";
+import "./ToastStyles.css";
+import {
+  ConnectButton,
+  MediaRenderer,
+  TransactionButton,
+  useActiveAccount,
+  useReadContract,
+} from "thirdweb/react";
 import thirdwebIcon from "@public/thirdweb.svg";
 import { client } from "./client";
 import { defineChain, getContract, toEther } from "thirdweb";
@@ -11,6 +17,11 @@ import { claimTo, getActiveClaimCondition } from "thirdweb/extensions/erc721";
 import { getTotalClaimedSupply } from "thirdweb/extensions/erc721";
 import { nextTokenIdToMint } from "thirdweb/extensions/erc721";
 import { useState } from "react";
+
+// Import toastify
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./ToastStyles.css"; // Voeg een CSS-bestand toe voor speciale toast-styling
 
 export default function Home() {
   const account = useActiveAccount();
@@ -60,9 +71,7 @@ export default function Home() {
         <Header />
         <ConnectButton client={client} chain={chain} />
         <div className="flex flex-col items-center mt-4">
-          {isContractMetadataloading ? (
-            <p>Loading...</p>
-          ) : null}
+          {isContractMetadataloading ? <p>Loading...</p> : null}
           {isClaimedSupplyLoading || isTotalSupplyLoading ? (
             <p>Loading...</p>
           ) : (
@@ -100,7 +109,15 @@ export default function Home() {
               })
             }
             onTransactionConfirmed={async () => {
-              alert("Mint Completed");
+              toast.success("🔥 Mint Completed 🔥", {
+                className: "fire-toast",
+                position: "bottom-center",
+                autoClose: 3000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+              });
               setQuantity(1);
             }}
           >
@@ -108,6 +125,7 @@ export default function Home() {
               ? "Loading Price..."
               : `Mint Chiliz (${getPrice(quantity)} ETH)`}
           </TransactionButton>
+          <ToastContainer />
         </div>
       </div>
     </main>
@@ -118,9 +136,9 @@ function Header() {
   return (
     <header className="flex flex-col items-center">
       <img
-        src="/media/logo_clean.png" // Gebruik een relatief pad
+        src="/media/logo_clean.png"
         alt=""
-        className="w-[300px] h-[300px] mb-6" // Pas de grootte aan
+        className="w-[300px] h-[300px] mb-6"
         style={{
           filter: "drop-shadow(0px 0px 24px #ff0000a8)",
         }}

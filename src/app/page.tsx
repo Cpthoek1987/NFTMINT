@@ -21,7 +21,7 @@ export default function Home() {
   const contract = getContract({
     client: client,
     chain: chain,
-    address: "0x33A13548BA65Fd411fAc8E1f8b93251c090C439a",
+    address: " 0x17b55c2E01C16bD3C024c5a20FD82D63E07B3CFd",
   });
 
   const {

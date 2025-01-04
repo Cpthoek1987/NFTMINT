@@ -11,7 +11,7 @@ import {
 import thirdwebIcon from "@public/thirdweb.svg";
 import { client } from "./client";
 import { defineChain, getContract, toEther } from "thirdweb";
-import { sepolia } from "thirdweb/chains";
+import { base } from "thirdweb/chains";
 import { getContractMetadata } from "thirdweb/extensions/common";
 import { claimTo, getActiveClaimCondition } from "thirdweb/extensions/erc721";
 import { getTotalClaimedSupply } from "thirdweb/extensions/erc721";
@@ -25,14 +25,14 @@ import "./ToastStyles.css"; // Voeg een CSS-bestand toe voor speciale toast-styl
 
 export default function Home() {
   const account = useActiveAccount();
-  const chain = defineChain(sepolia);
+  const chain = defineChain(base);
 
   const [quantity, setQuantity] = useState(1);
 
   const contract = getContract({
     client: client,
     chain: chain,
-    address: "0x17b55c2E01C16bD3C024c5a20FD82D63E07B3CFd",
+    address: "0x6f66981206AbF0877563335AC93674f01fbea44e",
   });
 
   const {

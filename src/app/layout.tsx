@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThirdwebProvider } from "thirdweb/react";
 import { base } from "thirdweb/chains";
 import { defineChain } from "thirdweb";
+import { client } from "./client";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThirdwebProvider supportedChains={[defineChain(base)]}>
+        <ThirdwebProvider client={client}>
           {children}
         </ThirdwebProvider>
       </body>
